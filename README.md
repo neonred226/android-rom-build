@@ -1,32 +1,31 @@
-## How To Adapt tree to build ROM
+## Adaptation
 
-Add this line to the ROM manifest.xml before ```repo sync``` in the hardware/qcom-caf/common line :
+Adapt new platform to your BoardConfigQcom.mk ROM:
+- https://github.com/Xiaomi-SD685-Devs/hardware_qcom-caf_common/commit/b682c8d6a2a1794ba74ac4529f5dc61aba1f7ced
 
-```
-    <linkfile src="os_pickup_audio-ar.mk" dest="hardware/qcom-caf/sm6225/audio/Android.mk" />
-    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm6225/Android.bp" />
-    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm6225/Android.mk" />
-```
+- https://github.com/Xiaomi-SD685-Devs/hardware_qcom-caf_common/commit/215ad7ce3c07b0138158a4478b178115c4a9583e
 
-Add this line to HAL repository line :
+- https://github.com/Xiaomi-SD685-Devs/hardware_qcom-caf_common/commit/7bfeadc6911b4422e66b889cb487ee0efd2f61a7
 
-```
-  <project path="hardware/qcom-caf/sm6225/audio/agm" name="Xiaomi-SD685-Devs/vendor_qcom_opensource_agm" remote="github" revision="lineage-20.0-caf-sm6225" />
-  <project path="hardware/qcom-caf/sm6225/audio/pal" name="Xiaomi-SD685-Devs/vendor_qcom_opensource_arpal-lx" remote="github" revision="lineage-20.0-caf-sm6225" />
-  <project path="hardware/qcom-caf/sm6225/audio/primary-hal" name="Xiaomi-SD685-Devs/hardware_qcom_audio" remote="github" revision="lineage-20.0-caf-sm6225" />
-  <project path="hardware/qcom-caf/sm6225/display" name="Xiaomi-SD685-Devs/hardware_qcom_display" remote="github" revision="lineage-20.0-caf-sm6225" />
-  <project path="hardware/qcom-caf/sm6225/media" name="Xiaomi-SD685-Devs/hardware_qcom_media" remote="github" revision="lineage-20.0-caf-sm6225" />
-```
+- https://github.com/Xiaomi-SD685-Devs/hardware_qcom-caf_common/commit/1d7c1ed0985ae4d815de67762d3ec505f8ac07a9
 
-After successfully repo sync finished. Then pick this commit to your'e vendor/ROM :
-- https://github.com/Xiaomi-SD685-Devs/vendor_lineage/commit/6b63aae0039f065eeacf4f96305c732f67ded67e
-- https://github.com/Xiaomi-SD685-Devs/vendor_lineage/commit/03bdcbe88c0cb22148aac8a5699ca4c06fb8a42a
-- https://github.com/Xiaomi-SD685-Devs/vendor_lineage/commit/c039930871be5683a968a1be1f46a2524441da69
+- https://github.com/Xiaomi-SD685-Devs/hardware_qcom-caf_common/commit/94efc0911bd439ae0a70a5a93a18e71ced285141
 
-Clone device tree to your initialize repo. Then add this flags hals to override legacy device hals in the BoardConfig.mk
-- https://github.com/Xiaomi-SD685-Devs/rom-build/blob/main/board_hals.mk
+- https://github.com/Xiaomi-SD685-Devs/hardware_qcom-caf_common/commit/d88b407057a85135bc236d7222dcc143d830fd9d
 
-Done! Compile the ROM.
+## Setup topaz for AOSP-Quack based rom
 
-## Notes :
-- We have a device with the bengal_515 platform.  It looks the same as bengal 4.19 legacy, therefore we temporarily use this method to fix compilation conflicts.  Don't worry we will fix everything soon so you can easily build ROM.
+* Download supported sources (LineageOS, AOSCP, RR, etc...) (this source is suited best for EvolutionX and AEX, you will have to modify it for other ROMs)
+* Once this is downloaded, clone this repo to .repo/local_manifests then sync again
+* Run . build/envsetup.sh
+* Launch your build (brunch aosp_topaz-userdebug, aosp can change depending on the target rom)
+
+## Credits
+
+2024 Omar <omarcoptan9@gmail.com><br>
+@boedhack99 for base trees
+
+## Contact
+
+* If you want talk to me, here is my telegram: https://t.me/AlCoptan99
+* If you *really* feel like donating, you can do so here: https://linktr.ee/Coptan

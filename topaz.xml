@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <!--
+    * target: topaz
+    * rom: Evolution-X
+    -->
+    <!-- Remote -->
+    <remote fetch="https://github.com/Topaz-Labs" name="topaz-lab" />
+    <remote fetch="https://github.com/BaranAspect-Development" name="baran" />
+    <!-- Device -->
+    <project path="device/xiaomi/topaz" name="android_device_xiaomi_topaz" remote="baran" revision="lineage-22.2" /> 
+    <!-- Vendor -->
+    <project path="vendor/xiaomi/topaz" name="android_vendor_xiaomi_topaz" remote="baran" revision="lineage-22.2" />
+    <!-- Kernel -->
+    <project path="device/xiaomi/topaz-kernel" name="android_device_xiaomi_topaz-kernel" remote="baran" revision="lineage-22.2" />
+
+    <!-- Sepolicy -->
+    <project path="device/qcom/sepolicy_vndr/sm6225" name="device_qcom_sepolicy_vndr" remote="topaz-lab" revision="lineage-22.0-caf-sm6225" />
+    <project path="device/xiaomi/sepolicy" name="device_xiaomi_sepolicy" remote="topaz-lab" revision="lineage-21.0" />
+    <!-- Custom -->
+    <remove-project path="hardware/qcom-caf/common" />
+     <project path="hardware/qcom-caf/common" name="hardware_qcom-caf_common" remote="topaz-lab" revision="lineage-22.1" >
+    <linkfile src="os_pickup_aosp.mk" dest="hardware/qcom/Android.mk" />
+    <linkfile src="os_pickup_sepolicy_vndr.mk" dest="device/qcom/sepolicy_vndr/SEPolicy.mk" />
+    </project>
+
+    <project path="hardware/qcom-caf/sm6225/audio/agm" name="vendor_qcom_opensource_agm" remote="topaz-lab" revision="lineage-22.0-caf-sm6225" />
+    <project path="hardware/qcom-caf/sm6225/audio/pal" name="vendor_qcom_opensource_arpal-lx" remote="topaz-lab" revision="lineage-22.0-caf-sm6225" />
+    <project path="hardware/qcom-caf/sm6225/audio/primary-hal" name="hardware_qcom_audio" remote="topaz-lab" revision="lineage-22.0-caf-sm6225" />
+    <project path="hardware/qcom-caf/sm6225/data-ipa-cfg-mgr" name="vendor_qcom_opensource_data-ipa-cfg-mgr" remote="topaz-lab" revision="lineage-22.0-caf-sm6225" />
+    <project path="hardware/qcom-caf/sm6225/dataipa" name="vendor_qcom_opensource_dataipa" remote="topaz-lab" revision="lineage-22.0-caf-sm6225" />
+    <project path="hardware/qcom-caf/sm6225/display" name="hardware_qcom_display" remote="topaz-lab" revision="lineage-22.0-caf-sm6225" />
+    <project path="hardware/qcom-caf/sm6225/media" name="hardware_qcom_media" remote="topaz-lab" revision="lineage-22.0-caf-sm6225" />
+    <project path="hardware/xiaomi" name="android_hardware_xiaomi" remote="topaz-lab" revision="lineage-21.0" />
+</manifest>
