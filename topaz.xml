@@ -6,7 +6,7 @@
     -->
     <!-- Remote -->
     <remote fetch="https://github.com/BaranAspect-Development" name="BaranAspect" />
-    <remote fetch="https://github.dev/neonred226" name="NeonRed" />
+    <remote fetch="https://github.com/neonred226" name="NeonRed" />
     <!-- Device -->
     <project path="device/xiaomi/topaz" name="android_device_xiaomi_topaz" remote="NeonRed" revision="lineage-22.2" /> 
     <!-- Vendor -->
